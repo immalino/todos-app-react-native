@@ -1,50 +1,181 @@
-# Welcome to your Expo app 👋
+# Aplikasi Todo React Native dengan Expo & Convex
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplikasi daftar tugas (todo list) lintas platform sederhana yang dibangun menggunakan React Native, Expo Router, dan Convex sebagai backend.
 
-## Get started
+## Fitur
 
-1. Install dependencies
+- **Buat, Baca, Perbarui, Hapus (CRUD) Tugas:** Tambah, lihat, edit, tandai selesai, dan hapus tugas.
+- **Backend Realtime:** Menggunakan Convex untuk sinkronisasi data realtime di seluruh perangkat.
+- **Navigasi Berbasis Tab:** Menggunakan Expo Router untuk navigasi tab antara layar Todos dan Pengaturan.
+- **Manajemen State:** Menggunakan hook `useState` dan `useQuery`/`useMutation` dari Convex untuk mengelola state aplikasi dan data.
+- **Styling Dinamis:** Menggunakan StyleSheet React Native dan hook kustom (`useTheme`) untuk tema terang/gelap yang dinamis.
+- **Komponen UI Kustom:** Termasuk komponen seperti Header, TodoInput, EmptyState, ProgressStats, Preferences, dan DangerZone.
+- **Pengaturan:**
+  - Statistik Progres (Total, Selesai, Aktif).
+  - Preferensi (Mode Gelap, Notifikasi [Placeholder], Auto Sync [Placeholder]).
+  - Zona Bahaya (Reset Aplikasi - Hapus semua tugas).
+- **Penanganan Loading & State Kosong:** Menampilkan indikator loading dan state kosong yang informatif.
 
-   ```bash
-   npm install
-   ```
+## Tumpukan Teknologi
 
-2. Start the app
+- **Frontend:**
+  - React Native
+  - Expo & Expo Router
+  - TypeScript
+  - Expo Vector Icons (@expo/vector-icons)
+  - Expo Linear Gradient
+- **Backend:**
+  - Convex (Platform Backend Realtime)
+- **Penyimpanan Lokal:**
+  - AsyncStorage (untuk preferensi tema)
 
-   ```bash
-   npx expo start
-   ```
+## Memulai
 
-In the output, you'll find options to open the app in a
+### Prasyarat
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Node.js (versi LTS direkomendasikan)
+- npm atau pnpm (pnpm digunakan dalam lockfile)
+- Akun Convex ([https://convex.dev](https://convex.dev))
+- Expo Go app di perangkat seluler Anda atau simulator/emulator yang terpasang.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Instalasi & Setup
 
-## Get a fresh project
+1.  **Clone Repositori:**
 
-When you're ready, run:
+    ```bash
+    git clone https://github.com/immalino/todos-app-react-native
+    cd todos-app-react-native
+    ```
 
-```bash
-npm run reset-project
-```
+2.  **Instal Dependensi:**
+    Jika menggunakan pnpm (berdasarkan `pnpm-lock.yaml`):
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+    ```bash
+    pnpm install
+    ```
 
-## Learn more
+    Atau jika menggunakan npm:
 
-To learn more about developing your project with Expo, look at the following resources:
+    ```bash
+    npm install
+    ```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+3.  **Setup Convex:**
+    - Instal Convex CLI: `npm install -g convex` atau `pnpm add -g convex`
+    - Jalakan dan ikuti perintahnya untuk memulai inisiasi project: `npx convex dev`
 
-## Join the community
+4.  **Konfigurasi Variabel Lingkungan:**
+    - Setelah menjalankan `npx convex dev`, `.env.local` akan tergenerate di root proyek.
+    - Tampilannya akan seperti ini:
 
-Join our community of developers creating universal apps.
+      ```env
+      CONVEX_DEPLOYMENT=<OTOMATIS_TERGENERATE>
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+      EXPO_PUBLIC_CONVEX_URL=<OTOMATIS_TERGENERATE>
+      ```
+
+5.  **Jalankan Aplikasi:**
+
+    ```bash
+    npx expo start
+    ```
+
+    Ikuti instruksi di terminal untuk membuka aplikasi:
+    - Di aplikasi Expo Go (scan QR code)
+    - Di simulator iOS (`i`)
+    - Di emulator Android (`a`)
+    - Di browser web (`w`)
+
+## Struktur Proyek
+
+Tentu, berikut adalah draf README.md yang didokumentasikan untuk repositori Anda, berdasarkan file yang disediakan:
+
+Markdown
+
+# Aplikasi Todo React Native dengan Expo & Convex
+
+Aplikasi daftar tugas (todo list) lintas platform sederhana yang dibangun menggunakan React Native, Expo Router, dan Convex sebagai backend.
+
+## Fitur
+
+- **Buat, Baca, Perbarui, Hapus (CRUD) Tugas:** Tambah, lihat, edit, tandai selesai, dan hapus tugas.
+- **Backend Realtime:** Menggunakan Convex untuk sinkronisasi data realtime di seluruh perangkat.
+- **Navigasi Berbasis Tab:** Menggunakan Expo Router untuk navigasi tab antara layar Todos dan Pengaturan.
+- **Manajemen State:** Menggunakan hook `useState` dan `useQuery`/`useMutation` dari Convex untuk mengelola state aplikasi dan data.
+- **Styling Dinamis:** Menggunakan StyleSheet React Native dan hook kustom (`useTheme`) untuk tema terang/gelap yang dinamis.
+- **Komponen UI Kustom:** Termasuk komponen seperti Header, TodoInput, EmptyState, ProgressStats, Preferences, dan DangerZone.
+- **Pengaturan:**
+  - Statistik Progres (Total, Selesai, Aktif).
+  - Preferensi (Mode Gelap, Notifikasi [Placeholder], Auto Sync [Placeholder]).
+  - Zona Bahaya (Reset Aplikasi - Hapus semua tugas).
+- **Penanganan Loading & State Kosong:** Menampilkan indikator loading dan state kosong yang informatif.
+
+## Tumpukan Teknologi
+
+- **Frontend:**
+  - React Native
+  - Expo & Expo Router
+  - TypeScript
+  - Expo Vector Icons (@expo/vector-icons)
+  - Expo Linear Gradient
+- **Backend:**
+  - Convex (Platform Backend Realtime)
+- **Penyimpanan Lokal:**
+  - AsyncStorage (untuk preferensi tema)
+
+## Memulai
+
+### Prasyarat
+
+- Node.js (versi LTS direkomendasikan)
+- npm atau pnpm (pnpm digunakan dalam lockfile)
+- Akun Convex ([https://convex.dev](https://convex.dev))
+- Expo Go app di perangkat seluler Anda atau simulator/emulator yang terpasang.
+
+### Instalasi & Setup
+
+1.  **Clone Repositori:**
+
+    ```bash
+    git clone <URL_REPOSITORI_ANDA>
+    cd <NAMA_DIREKTORI_PROYEK>
+    ```
+
+2.  **Instal Dependensi:**
+    Jika menggunakan pnpm (berdasarkan `pnpm-lock.yaml`):
+
+    ```bash
+    pnpm install
+    ```
+
+    Atau jika menggunakan npm:
+
+    ```bash
+    npm install
+    ```
+
+3.  **Setup Convex:**
+    - Instal Convex CLI: `npm install -g convex` atau `pnpm add -g convex`
+    - Login ke akun Convex Anda: `npx convex login`
+    - Inisialisasi Convex di proyek Anda (jika belum): `npx convex init`
+    - Deploy fungsi backend: `npx convex deploy`
+    - Dapatkan URL deployment Convex Anda dari dashboard Convex atau output CLI.
+
+4.  **Konfigurasi Variabel Lingkungan:**
+    - Buat file `.env` di root proyek.
+    - Tambahkan URL Convex Anda:
+      ```env
+      EXPO_PUBLIC_CONVEX_URL=<URL_CONVEX_ANDA>
+      ```
+
+5.  **Jalankan Aplikasi:**
+
+    ```bash
+    npx expo start
+    ```
+
+    Ikuti instruksi di terminal untuk membuka aplikasi:
+    - Di aplikasi Expo Go (scan QR code)
+    - Di simulator iOS (`i`)
+    - Di emulator Android (`a`)
+    - Di browser web (`w`)
