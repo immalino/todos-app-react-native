@@ -1,7 +1,7 @@
 import { createHomeStyles } from "@/assets/styles/home.styles";
+import Header from "@/components/Header";
 import useTheme from "@/hooks/useTheme";
 import { LinearGradient } from "expo-linear-gradient";
-import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -14,7 +14,7 @@ export default function Index() {
       style={homeStyle.container}
     >
       <SafeAreaView style={homeStyle.safeArea}>
-        <Text>Akmal</Text>
+        <Header />
       </SafeAreaView>
     </LinearGradient>
   );
